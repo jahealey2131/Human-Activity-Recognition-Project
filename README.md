@@ -49,9 +49,14 @@ That resulted in predictions that were 100% accurate.  I am not posting the answ
 
 I did not use cross-validation in this excercise and I expect that the out of sample error will be zero as long as the samples in the "out of sample" set are simply single points drawn from the time series in the test set, whcih is what these seem to be.
 
-##Conclusions
+##Cross-Validation
 
-The best way to place a single data point in a set of consecutive time series is with a timestamp. I did not find this answer very satisfying in terms of shedding any light onto the problem of how to recognize human activity, but it met the goals of the assignment.
+As stated in the "Cross-Validation" Video Lecture for this Course, "for time series data, data must be used in chunks."   <<Cross validation>> "does not work if you just randomly subsample the data, you actually have to use chunks.  You have to get blocks of time that are contiguous, otherwise you are ignoring a huge rich structure in the data if you just randomly take samples."   Unfortunately, this is exactly what someone did to create this test set, it is just random samples from the time series that can in no reasonable way be considered independent.  Also since there is only a single point, no meaningful structure can be extracted from each sample.   
+
+##Conclusions
+I assume that the point of this project was to get us to look at the data, both in the training and testing set and to realize that the data in the testing sat was just single random samples drawn from the training time series and that therefore the way that we normally do training and cross-validation for either independent identically distributed (iid) random variables or "meaningful chunks" of time series data would not work in this case.  Because the properties of the test set, I used what I consider a rather degenerative classifer that is does not provide meaningful insight on the data but does provide correct classification.  
+
+While it is my hope that I did not completely miss the point of this assignment, I am not entirely satisfied with this analysis.  I welcome feedback.  
 
 ##References
 
