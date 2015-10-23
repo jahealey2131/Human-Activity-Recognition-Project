@@ -47,6 +47,8 @@ and ran a prediction model:
 
 That resulted in predictions that were 100% accurate.  I am not posting the answers in this writeup because it is public, but if you were to just copy and paste the code you would get the right answers.
 
+I did not use cross-validation in this excercise and I expect that the out of sample error will be zero as long as the samples in the "out of sample" set are simply single points drawn from the time series in the test set, whcih is what these seem to be.
+
 ##Conclusions
 
 The best way to place a single data point in a set of consecutive time series is with a timestamp. I did not find this answer very satisfying in terms of shedding any light onto the problem of how to recognize human activity, but it met the goals of the assignment.
