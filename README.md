@@ -1,10 +1,3 @@
----
-title: "Practial Machine Learning: Final Project Write-up"
-author: Jennifer Healey
-date: October 23, 2005
-output: html_document
-
-
 
 
 #Human-Activity-Recognition-Project
@@ -81,4 +74,3 @@ I assume that the point of this project was to get us to look at the data, both 
 
 Read more: http://groupware.les.inf.puc-rio.br/har#ixzz3ovk1e0qK
 
----
