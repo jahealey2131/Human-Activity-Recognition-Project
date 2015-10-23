@@ -19,6 +19,8 @@ The time series data looked a bit odd and I was not sure it had been truncated p
 
 ts1<-ts(A_ad$raw_timestamp_part_1)
 
+![Plot Sample Timestamps from Time Series](https://github.com/jahealey2131/Human-Activity-Recognition-Project/blob/master/Adelmo%20Classe%20A%20Raw%20TS%201.png)
+
 https://github.com/jahealey2131/Human-Activity-Recognition-Project/blob/master/Adelmo%20Classe%20A%20Raw%20TS%201.png
 
 What I saw from this was that there were some inconsistencies in the time stamps and that the data might have to be sorted/ordered to be properly analyzed.  I wanted to see if the same issues existed in the test set, so I inspected the test set.
