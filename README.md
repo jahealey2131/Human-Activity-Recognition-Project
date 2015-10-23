@@ -28,14 +28,28 @@ Looking at the test set, I noted that features 12-36,50-59,69-83, 87-112 and 125
 
 ##Classification
 
-I creates a subset of the data with just the username and the first timestamp, and trained a Generalized Boosted Regression
+I creates a subset of the data with just the username and the first timestamp, renaming the columns:
 
-df2<-data.frame(training$user_name,training$raw_timestamp_part_1,training$classe)
-colnames(df2)<-c("user_name", "raw_timestamp_part1", "classe")
-modFit<-train(classe ~ .,method="gbm", data=df2)
-df3<-data.frame(testing$user_name,testing$raw_timestamp_part_1,testing$problem_id)
-colnames(df3)<-c("user_name", "raw_timestamp_part1", "classe")
+>df2<-data.frame(training$user_name,training$raw_timestamp_part_1,training$classe)
+>colnames(df2)<-c("user_name", "raw_timestamp_part1", "classe")
 
+I the trained a generalized boosted regression classifier using the "train" function from the caret package:
+
+>modFit<-train(classe ~ .,method="gbm", data=df2)
+
+I similarly created a subset of the testing data with just the username and the first timestamp, renaming the columns:
+>df3<-data.frame(testing$user_name,testing$raw_timestamp_part_1,testing$problem_id)
+>colnames(df3)<-c("user_name", "raw_timestamp_part1", "classe")
+
+and ran a prediction model:
+
+>predict(modFit,newdata=df3)
+
+That resulted in predictions that were 100% accurate.  I am not posting the answers in this writeup because it is public, but if you were to just copy and paste the code you would get the right answers.
+
+##Conclusions
+
+The best way to place a single data point in a set of consecutive time series is with a timestamp. I did not find this answer very satisfying in terms of shedding any light onto the problem of how to recognize human activity, but it met the goals of the assignment.
 
 ##References
 
