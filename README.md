@@ -1,9 +1,10 @@
 #Human-Activity-Recognition-Project
 
 ##Introduction
-This project is an analysis of data generously supplied by Ugulino, Carador, Vega, Velloso, Milidiu, and Fuks under the Creative Commons license (CC BY-SA).[1].  The data, available at http://groupware.les.inf.puc-rio.br/har is taken from sensors during a series of Weight Lifting Exercises.  The dataset was collected to investigate "how well" a weight lifting exercise was being performed by the wearer and consists of data from  six young health participants were asked to perform one set of 10 repetitions of the Unilateral Dumbbell Biceps Curl in five different fashions: exactly according to the specification (Class A), throwing the elbows to the front (Class B), lifting the dumbbell only halfway (Class C), lowering the dumbbell only halfway (Class D) and throwing the hips to the front (Class E).[1]  Sensors were placed as described in the diagram below.  For more information see http://groupware.les.inf.puc-rio.br/har#ixzz3ovqv1S8E
+This is the final project in the Practical Machine Learning class.  The project consists of developing a classifier to successfully classify datapoints from a Human Activity Recognition dataset.  My efforts in this project consist of research, data inspection, data visualization, feature selection, training a classifier and implementing a predictor.  The data for this project was generously supplied by Ugulino, Carador, Vega, Velloso, Milidiu, and Fuks under the Creative Commons license (CC BY-SA).[1].  
 
-![sensor placements](http://groupware.les.inf.puc-rio.br/static/WLE/on-body-sensing-schema.png)
+##Background
+In preparation for data analysis, I read the description of the data and looked at the authors prior work.  From the description, I had made the assumption that I would be looking at time series, extracting features (or using the provided extracted features) and training a classifier that captured the overall characteristice of "correctly" performed excercies vs. incorrectly classified excercises.  Under this assumption, I was expecting that the provided test set would have also consisted of a set of time series taken from either a correct or a type of incorrectly performed excercise.  
 
 
 ##Data Exploration
