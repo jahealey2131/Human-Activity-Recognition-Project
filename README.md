@@ -9,15 +9,15 @@ In preparation for data analysis, I read the description of the data and looked 
 ##Data Exploration
 Under my initial assumption, I began seperating out the data by participant and by excercise type:
 
-e.g. > AA<-subset(training, user_name=='adelmo' & classe =='A')
+AA<-subset(training, user_name=='adelmo' & classe =='A')
 
 And then converted the data to a time series and then plotted the data.
 
-e.g. > AA_arm_x<-ts(AA$accel_arm_x)
+AA_arm_x<-ts(AA$accel_arm_x)
 
 The time series data looked a bit odd and I was not sure it had been truncated properly, so just to be sure I looked at the timestamps to make sure there were not breaks or errors.  So first I converted the timestamps to a time series and plotted it.
 
-e.g.  > ts1<-ts(A_ad$raw_timestamp_part_1)
+ts1<-ts(A_ad$raw_timestamp_part_1)
 
 What I saw from this was that there were some inconsistencies in the time stamps and that the data might have to be sorted/ordered to be properly analyzed.  I wanted to see if the same issues existed in the test set, so I inspected the test set.
 
