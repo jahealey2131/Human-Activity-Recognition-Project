@@ -19,7 +19,7 @@ AA_arm_x<-ts(AA$accel_arm_x)
 
 ![Accelerometer Data](https://github.com/jahealey2131/Human-Activity-Recognition-Project/blob/master/Arm%20Acceleration.png)
 
-**bold** An example time series from Adelmo, Classe A, and example of how to correctly do the excercise **bold** 
+** An example time series from Adelmo, Classe A, and example of how to correctly do the excercise ** 
 
 
 The time series data looked a bit odd and I was not sure it had been truncated properly, so just to be sure I looked at the timestamps to make sure there were not breaks or errors.  So first I converted the timestamps to a time series and plotted it.
