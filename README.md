@@ -56,7 +56,6 @@ As stated in the "Cross-Validation" Video Lecture for this Course, "for time ser
 ##Conclusions
 I assume that the point of this project was to get us to look at the data, both in the training and testing set and to realize that the data in the testing sat was just single random samples drawn from the training time series and that therefore the way that we normally do training and cross-validation for either independent identically distributed (iid) random variables or "meaningful chunks" of time series data would not work in this case.  Because the properties of the test set, I used what I consider a rather degenerative classifer that is does not provide meaningful insight on the data but does provide correct classification.  
 
-While it is my hope that I did not completely miss the point of this assignment, I am not entirely satisfied with this analysis.  I welcome feedback.  
 
 ##References
 
