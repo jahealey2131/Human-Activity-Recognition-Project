@@ -11,20 +11,31 @@ Under my initial assumption, I began seperating out the data by participant and 
 
 e.g. > AA<-subset(training, user_name=='adelmo' & classe =='A')
 
+And then converted the data to a time series and then plotted the data.
+
 e.g. > AA_arm_x<-ts(AA$accel_arm_x)
 
-ts1<-ts(A_ad$raw_timestamp_part_1)
+The time series data looked a bit odd and I was not sure it had been truncated properly, so just to be sure I looked at the timestamps to make sure there were not breaks or errors.  So first I converted the timestamps to a time series and plotted it.
 
-ts1<-ts(A_ad$raw_timestamp_part_1)
+e.g.  > ts1<-ts(A_ad$raw_timestamp_part_1)
 
-From the description, I assumed that the data would consist of various time series from which we would extract features.   I had also initially assumed that the test data would be time series.  What I found was that the training data was a mix of time series data and what looked like features extracted from successive time windows.  The testing data, however seemed to be just single points in a time series.  
+What I saw from this was that there were some inconsistencies in the time stamps and that the data might have to be sorted/ordered to be properly analyzed.  I wanted to see if the same issues existed in the test set, so I inspected the test set.
 
-Initially I had thought to characterize the time series with features, and initially broke the data down by user and class, however, given that the test data was only a single point, and could not be analyzed with summary features, this did not make sense. 
-
-
+I was very suprised to see that the test set included only single points of data and not time series.  Whereas initially I have thought to extract time series features and make user dependent and intependent models and normalize out means and variances, I realized that I could not do this with single points of data.
 
 ##Feature Evaluation
-Looking at the test set, I noted that features 12-36,50-59,69-83, 87-112 and 125-150 were all NA and would not be useful for discrimination, immediately eliminating 97 of the possible 159 features.  Of these, one was a date feature, that was redundant with the timestamp.  
+Looking at the test set, I noted that features 12-36,50-59,69-83, 87-112 and 125-150 were all NA and would not be useful for discrimination, immediately eliminating 97 of the possible 159 features.  Of these, one was a date feature, that was redundant with the timestamp.  It was unclear to me how I could extract features that could meaningfully capture the "correct" way to do an excercise from single data points, but it was immediately obvious to me that I could create a correct classification algorithm by simply using the "user_name" and "timestamp" variables to associate each of these single data points with its respective time series.  Although I did not feel this was very "meaningful" I was not sure what else to so with a single point int he test set.  
+
+##Classification
+
+I creates a subset of the data with just the username and the first timestamp, and trained a Generalized Boosted Regression
+
+df2<-data.frame(training$user_name,training$raw_timestamp_part_1,training$classe)
+colnames(df2)<-c("user_name", "raw_timestamp_part1", "classe")
+modFit<-train(classe ~ .,method="gbm", data=df2)
+df3<-data.frame(testing$user_name,testing$raw_timestamp_part_1,testing$problem_id)
+colnames(df3)<-c("user_name", "raw_timestamp_part1", "classe")
+
 
 ##References
 
