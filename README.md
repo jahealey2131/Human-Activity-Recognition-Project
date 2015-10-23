@@ -1,3 +1,11 @@
+---
+title: "Practial Machine Learning: Final Project Write-up"
+author: Jennifer Healey
+date: October 23, 2005
+output: html_document
+---
+
+
 
 #Human-Activity-Recognition-Project
 
