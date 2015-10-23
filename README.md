@@ -1,10 +1,3 @@
----
-title: "Class P{roject Write-Up"
-output:
-  html_document:
-    toc: true
-    theme: united
----
 
 #Human-Activity-Recognition-Project
 
