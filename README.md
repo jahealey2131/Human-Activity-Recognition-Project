@@ -18,7 +18,8 @@ And then converted the data to a time series and then plotted the data.
 AA_arm_x<-ts(AA$accel_arm_x)
 
 ![Accelerometer Data](https://github.com/jahealey2131/Human-Activity-Recognition-Project/blob/master/Arm%20Acceleration.png)
-An example time series from Adelmo, Classe A, and example of how to correctly do the excercise
+
+###An example time series from Adelmo, Classe A, and example of how to correctly do the excercise
 
 
 The time series data looked a bit odd and I was not sure it had been truncated properly, so just to be sure I looked at the timestamps to make sure there were not breaks or errors.  So first I converted the timestamps to a time series and plotted it.
@@ -26,7 +27,8 @@ The time series data looked a bit odd and I was not sure it had been truncated p
 ts1<-ts(A_ad$raw_timestamp_part_1)
 
 ![Plot Sample Timestamps from Time Series](https://github.com/jahealey2131/Human-Activity-Recognition-Project/blob/master/Adelmo%20Classe%20A%20Raw%20TS%201.png)
-The Corresponding timestamps for the Adelmo Classe A Example
+
+\b The Corresponding timestamps for the Adelmo Classe A Example
 
 
 What I saw from this was that there were some inconsistencies in the time stamps and that the data might have to be sorted/ordered to be properly analyzed.  I wanted to see if the same issues existed in the test set, so I inspected the test set.
