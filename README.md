@@ -4,10 +4,19 @@
 This is the final project in the Practical Machine Learning class.  The project consists of developing a classifier to successfully classify datapoints from a Human Activity Recognition dataset.  My efforts in this project consist of research, data inspection, data visualization, feature selection, training a classifier and implementing a predictor.  The data for this project was generously supplied by Ugulino, Carador, Vega, Velloso, Milidiu, and Fuks under the Creative Commons license (CC BY-SA).[1].  
 
 ##Background
-In preparation for data analysis, I read the description of the data and looked at the authors prior work.  From the description, I had made the assumption that I would be looking at time series, extracting features (or using the provided extracted features) and training a classifier that captured the overall characteristice of "correctly" performed excercies vs. incorrectly classified excercises.  Under this assumption, I was expecting that the provided test set would have also consisted of a set of time series taken from either a correct or a type of incorrectly performed excercise.  
-
+In preparation for data analysis, I read the description of the data and looked at the authors prior work.  From the description, I had made the assumption that I would be looking at time series, extracting features (or using the provided extracted features) and training a classifier that captured the overall characteristice of "correctly" performed excercies vs. incorrectly classified excercises.  Under this assumption, I was expecting that the provided test set would have also consisted of a set of time series taken from either a correct or a type of incorrectly performed excercise.  I was suprised to find that the test set consisted of only single data points, which completely changed my approach.  
 
 ##Data Exploration
+Under my initial assumption, I began seperating out the data by participant and by excercise type:
+
+e.g. > AA<-subset(training, user_name=='adelmo' & classe =='A')
+
+e.g. > AA_arm_x<-ts(AA$accel_arm_x)
+
+ts1<-ts(A_ad$raw_timestamp_part_1)
+
+ts1<-ts(A_ad$raw_timestamp_part_1)
+
 From the description, I assumed that the data would consist of various time series from which we would extract features.   I had also initially assumed that the test data would be time series.  What I found was that the training data was a mix of time series data and what looked like features extracted from successive time windows.  The testing data, however seemed to be just single points in a time series.  
 
 Initially I had thought to characterize the time series with features, and initially broke the data down by user and class, however, given that the test data was only a single point, and could not be analyzed with summary features, this did not make sense. 
