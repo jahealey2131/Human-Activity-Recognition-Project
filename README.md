@@ -26,8 +26,9 @@ AA_arm_x<-ts(AA$accel_arm_x)
 
 
 The time series data looked a bit odd and I was not sure it had been truncated properly, so just to be sure I looked at the timestamps to make sure there were not breaks or errors.  So first I converted the timestamps to a time series and plotted it.
-
+```{r, eval=FALSE}
 ts1<-ts(A_ad$raw_timestamp_part_1)
+```
 
 ![Plot Sample Timestamps from Time Series](https://github.com/jahealey2131/Human-Activity-Recognition-Project/blob/master/Adelmo%20Classe%20A%20Raw%20TS%201.png)
 
@@ -44,10 +45,10 @@ Looking at the test set, I noted that features 12-36,50-59,69-83, 87-112 and 125
 #Building the Model
 
 First, I created a subset of the data with just the username and the first timestamp variable "raw_timestamp_part1", renaming the columns:
-
->df2<-data.frame(training$user_name,training$raw_timestamp_part_1,training$classe)
->colnames(df2)<-c("user_name", "raw_timestamp_part1", "classe")
-
+```{r, eval=FALSE}
+df2<-data.frame(training$user_name,training$raw_timestamp_part_1,training$classe)
+colnames(df2)<-c("user_name", "raw_timestamp_part1", "classe")
+```
 I then decided to try a generalized boosting model from the caret package, using the test set and cross-validation.  
 
 ##Cross-Validation
@@ -56,12 +57,14 @@ As stated in the "Cross-Validation" Video Lecture for this Course, "for time ser
 
 To mimic what I saw in the test set, I used a "20 random sample" model for cross validation.  I first chose a random sample of twenty indices, extracted them from the training set to create the set for cross-validation, then trained the  gerneralized boosting model on the remaining points, using the "train" function from the caret package:
 
+```{r, eval=FALSE}
   a<-sample(1:19622, 20)
   twenty_set<-(subtrain[a,])
   rest_set<-(subtrain[-a,])
   modFit<-train(classe ~ .,method="gbm", data=rest_set)
   cv_pred<-predict(modFit,newdata=twenty_set)
   accuracy<-sum(cv_pred==twenty_set$classe)
+```
 
 I did this ten times resulting in the following values for accuracy: 20/20, 20/20, 20/20, 20/20, 20/20, 20/20, 19/20, 20/20, 20/20,20/20.  Overall and average accuracy of 99.5%.  I was satisfied with this as a result and decided not to modify the algorithm.
 
@@ -69,13 +72,15 @@ I did this ten times resulting in the following values for accuracy: 20/20, 20/2
 
 I then used identical preprocessing on the testing data and created a subset with just the username and the first timestamp, renaming the columns:
 
+```{r, eval=FALSE}
 >df3<-data.frame(testing$user_name,testing$raw_timestamp_part_1,testing$problem_id)
 >colnames(df3)<-c("user_name", "raw_timestamp_part1", "classe")
-
+```
 and ran a prediction model:
 
+```{r, eval=FALSE}
 >predict(modFit,newdata=df3)
-
+```
 and generated 20 text files with a single capital letter for each of the values of the prediction and submitted them via the course website.  The results was 20/20 correct.
 
 ##Conclusions
