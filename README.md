@@ -16,8 +16,9 @@ AA<-subset(training, user_name=='adelmo' & classe =='A')
 ```
 
 And then converted the data to a time series and then plotted the data.
-
+```{r, eval=FALSE}
 AA_arm_x<-ts(AA$accel_arm_x)
+```
 
 ![Accelerometer Data](https://github.com/jahealey2131/Human-Activity-Recognition-Project/blob/master/Arm%20Acceleration.png)
 
