@@ -11,8 +11,9 @@ In preparation for data analysis, I read the description of the data and looked 
 ##Data Exploration
 Under my initial assumption, I began seperating out the data by participant and by excercise type:
 
+```{r, eval=FALSE}
 AA<-subset(training, user_name=='adelmo' & classe =='A')
-
+'''
 And then converted the data to a time series and then plotted the data.
 
 AA_arm_x<-ts(AA$accel_arm_x)
